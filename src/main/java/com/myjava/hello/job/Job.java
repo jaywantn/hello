@@ -1,6 +1,17 @@
 package com.myjava.hello.job;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+// import jakarta.persistence.Table;
+
+@Entity
+// @Table(name ="job_title")
 public class Job {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
     private String title;
     private String description;
@@ -9,6 +20,8 @@ public class Job {
     private  String location;
 
     
+    public Job() {
+    }
     public Job(Long id, String title, String minSalary, String maxSalary, String location, String description) {
         this.id = id;
         this.title = title;
