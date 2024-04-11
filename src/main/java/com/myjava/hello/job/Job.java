@@ -1,10 +1,15 @@
 package com.myjava.hello.job;
 
+import org.hibernate.mapping.List;
+
+import com.myjava.hello.company.Company;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 // import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 // @Table(name ="job_title")
@@ -19,7 +24,15 @@ public class Job {
     private String maxSalary;
     private  String location;
 
-    
+    @ManyToOne
+    private  Company company;
+
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company) {
+        this.company = company;
+    }
     public Job() {
     }
     public Job(Long id, String title, String minSalary, String maxSalary, String location, String description) {
